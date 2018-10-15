@@ -11,7 +11,8 @@ s_channel = 1
 m_channel_l = 2
 m_channel_r = 3
 
-
+# set state to rcpy.RUNNING
+rcpy.set_state(rcpy.RUNNING)
 # defaults
 duty = 1.5
 period = 0.02
@@ -26,10 +27,15 @@ mtr_r = motor.Motor(m_channel_r)
 #enables servo
 servo.enable()
 # start clock
+clck = clock.Clock(srvo, period)
+
 clck.start()
 
-
-while(1):
-    motor.set(m_channel_l, 1)
-    #srvo.set(d)
-    time.sleep(.02)
+try:
+    while(1):
+        motor.set(m_channel_l, 1)
+        #srvo.set(d)
+        #time.sleep(.02)
+except KeyboardInterrupt:
+    rcpy.EXITING
+    pass
