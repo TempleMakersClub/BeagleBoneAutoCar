@@ -1,10 +1,10 @@
-import rcpy 
+import rcpy
 import rcpy.servo as servo
 import rcpy.clock as clock
 import rcpy.motor as motor
 import time
 #variables
-
+#
 #servo channel
 s_channel = 1
 #motor channel
